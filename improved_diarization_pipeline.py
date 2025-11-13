@@ -54,7 +54,7 @@ class PipelineConfig:
     whisper_model: str = "crestai/whisper_salt-large-v3-ct2"
     
     # Hugging Face settings
-    hf_token: str = "hf_xxxxxxxxxxxxx"  # Replace with your token
+    hf_token: str = "hf_xxxxxxxxxxxxxxxxxxx"  # Replace with your token
     
     # Chunking settings
     chunk_strategy: str = "silence"  # "silence" or "fixed"
@@ -350,7 +350,7 @@ class DiarizationEngine:
         login(token=config.hf_token)
         self.pipeline = Pipeline.from_pretrained(
             "pyannote/speaker-diarization-3.1",
-            use_auth_token=config.hf_token
+            token=config.hf_token
         )
         self.pipeline.to(self.device)
     
@@ -622,7 +622,7 @@ def main():
         whisper_model="crestai/whisper_salt-large-v3-ct2",
         
         # HuggingFace token
-        hf_token="hf_xxxxxxxxxxxxx",  # Replace with your token
+        hf_token="hf_xxxxxxxxxxxxxxxxxxx",  # Replace with your token
         
         # Chunking strategy
         chunk_strategy="silence",  # Use "silence" for intelligent chunking
